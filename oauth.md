@@ -1,24 +1,56 @@
-# 📦 Distrubuting Your App
+# 📦 2. Distributing Your App
 
 ---
+Once you finish developing and testing your Slack app (internal integration) in your own dev workspace, now it is time to make it installable and distribute.
+
+To distribute your app (on Slack App Directory or elsewhere), you must use Slack OAuth to authenticate a user and her workspace (where the app will be installed).
+
 
 ## Using Slack OAuth
 
-Slack OAuth workflow of a user tried to install your app to her workspace:
+These steps are the typical Slack OAuth workflow when a user (admin of a workspace) tried to install your app to her workspace.
+
+### Authorization
+
+First, your app requests an authorization from a user using a button on your web site:
+
+![Slack OAuth flow 1](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth_user.gif?1508272842039)
+
+Clicking the HTML button initiates a GET request to the URL, `https://slack.com/oauth/authorize` with the parameters (team ID and scopes etc that needed for the app.  
+
+Once the request is granted, Slack sends you a temporary `code`, which you will need to exchange it to a more permanent token. The code expires 10 minutes after issuance.
+
+### Token Issuing
+
+If all is well, exchange the authorization code for an access token using the `oauth.access` API method.
+
+![Slack OAuth flow 2](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth_grant.gif?1508272838919)
+
+### Calling Slack APIs
+
+Now you have more permanent token for this user's workspace (as well as any other users' workspace tokens!), so that you can use the token to call any other methods, such as `user.info` for your app!
+
+![Slack OAuth flow 3](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth_token.gif?1508272835813)
+
+
+### Reviewing Your OAuth Flow
+
+Let' recap everything you have learned in a single GIF animation:
 
 1. Your app requests an authorization from a user with a button
 2. Once granted, your app receives a temporary `code`
-3. Call the `oauth.access` with the code
+3. Call the `oauth.access` method with the code
 4. Exchange the code to a more permanent token
 5. Use the token to make API calls
 6. Slack server gives your app responses
 
-![Slack OAuth flow](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth.gif?1507927255842)
+![Slack OAuth flow](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth.gif?1508261030604)
 
 
 ## 🔐 Setting up the Slack OAuth Button
 
-Once you finish developing and testing your Slack app in your own dev workspace, now it is time to make it installable and distribute.
+Now let's implement the OAuth for your app.
+
 
 
 ### 🗺 Setting up OAuth Redirect URL
@@ -62,7 +94,7 @@ Then scroll up to the embeddable button section and copy the button HTML snippet
 
 ![oauth button](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Foauth_button.png?1507244339743)
 
-Paste the HTML code in your web page (in this Glitch example, `index.html`):
+Paste the HTML code in your web page (in this Glitch example, see `index.html`):
 
 ```html
 <a href="https://slack.com/oauth/authorize?&client_id=18523225173.254487109014&scope=commands,users:read">
@@ -73,15 +105,17 @@ Make sure if the `href` URL is passing all the permission scopes you need. (In t
 
 Once a user authenticates with the button, Slack will redirect back to your specified `redirect_uri` (either the one you specified in the dashboard, or passed as a query string with the button href) with a temporary code. You will need to use the code to obtain an `access_token`.
 
-If you have developing and testing on your own test workspace with a Slack auth token (`-xoxb`), now you no longer need to use the static token, because you are now using the token!
+### Tokens
 
-## Distribute
+When you were developing and testing your internal integration on your own test workspace, you had your workspace Slack auth token (`-xoxb`) hardcoded. With OAuth, now you will use an issued token per each workspace to call Web APIs.
 
-So make sure you are now using a correct auth token to access all Slack APIs, check the checkbox under **Remove Hard Coded Information** under "Manage Distribution", click the **Activate Public Distribution** button.
+## Activate Public Distribution
+
+Now go back to your dashboard and check the checkbox under **Remove Hard Coded Information** under "Manage Distribution", click the **Activate Public Distribution** button.
 
 ![Distribute](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fdistribution_ok.png?1507244344076)
 
-Now your app should be installable at any workspace!
+Now your app should be installable at any workspaces!
 
 Go to the HTML page with the button and authenticate and install the bot to a workspace:
 
