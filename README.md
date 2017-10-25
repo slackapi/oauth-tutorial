@@ -19,14 +19,14 @@ Try this [**OAuth demo on Glitch**](https://slack-echobot-oauth.glitch.me/)!
 
 Cool. First, [Fork this sample ("Remix on Glitch")](https://gomix.com/#!/remix/slack-echobot-oauth) to your own repo and get started!
 
-### 🤖 1. Developing a Bot
+###  1. Developing a Bot
 
 See the step-by-step instructions at:
 
-[**Setting up & Develop in your Dev Workspace**](https://glitch.com/edit/#!/slack-echobot-oauth) - How to configure the EchoBot and install it on your testing Slack workspace
+[**Setting up & Develop in your Dev Workspace**](setup.md) - How to configure the EchoBot and install it on your testing Slack workspace
 
-### 🗝 2. Distribute with OAuth
+###  2. Distribute with OAuth
 
 See the step-by-step instructions at:
 
-[**Distibute Your App: How to work with an OAuth Button**](https://glitch.com/edit/#!/slack-echobot-oauth) - How to make the app installable to any Slack workspaces with an OAuth button
+[**Distibute Your App: How to work with an OAuth Button**](oauth.md) - How to make the app installable to any Slack workspaces with an OAuth button
