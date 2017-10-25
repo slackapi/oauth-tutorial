@@ -1,0 +1,22 @@
+{
+  "name": "slack-echobot",
+  "version": "1.0.0",
+  "description": "A simple command that echoes a message",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "slack"
+  ],
+  "author": "Tomomi Imura",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "request": "^2.80.0",
+    "node-persist": "^2.1.0"
+  }
+}

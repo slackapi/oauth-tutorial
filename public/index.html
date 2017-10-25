@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Slack Install Button Demo</title>
+  <meta name="description" content="Slack OAuth Button Demo">
+  <meta name="author" content="Tomomi Imura  @girlie_mac">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>OAuth Demo: Install EchoBot</h1>
+  </header>
+
+
+
+  <section id="main" role="main">
+    <p>This Slack OAuth button allows your users to install the EchoBot to their Slack workspace.</p>
+    <p>
+      <a href="https://slack.com/oauth/authorize?&client_id=18523225173.254487109014&scope=commands,users:read"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+    </p>
+  </section>
+  <section id="code">
+    <p>
+      Slack OAuth button HTML should look like:
+    </p>
+    <pre>
+    <code>
+&lt;a href="https://slack.com/oauth/authorize
+?client_id=xxxxxxxx.xxxxxxxx&<span>scope=commands,users:read"</span>"&gt;
+  &lt;img alt="Add to Slack" height="40" width="139"
+  src="https://platform.slack-edge.com/img/add_to_slack.png"
+  srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x,
+  https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /&gt;
+&lt;/a&gt;
+    </code>
+    </pre>
+    When you are developing the OAuth flow and something is not working, Check if you have set your scopes correctly!
+    See the OAuth.md for the complete step-by-step tutorial.
+
+  </section>
+
+  <footer>
+
+  </footer>
+</body>
+</html>
