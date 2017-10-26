@@ -16,7 +16,16 @@ First, your app requests an authorization from a user using a button on your web
 
 ![Slack OAuth flow 1](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth_user.gif?1508272842039)
 
-Clicking the HTML button initiates a GET request to the URL, `https://slack.com/oauth/authorize` with the parameters (team ID and scopes etc that needed for the app.  
+Clicking the HTML button initiates a GET request to the URL, `https://slack.com/oauth/authorize` with the parameters (`client_id` and `scopes` also some other [optional params](https://api.slack.com/docs/oauth) that needed for the app.  
+
+#### Scopes
+
+In this sample app, you only need the permission scopes for `commands` and `users:read`, however, if you are willing to access more APIs that requires other permissions, you have to attach them here too.
+
+You can find out which scopes yoy need at the API pages. For instance, if you want to use the [`pins.add`](https://api.slack.com/methods/pins.add) method, you can find the required scope at the top-right side under **Expected scopes**.
+
+
+![scopes](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fscopes.png?1509041940214)
 
 Once the request is granted, Slack sends you a temporary `code`, which you will need to exchange it to a more permanent token. The code expires 10 minutes after issuance.
 
