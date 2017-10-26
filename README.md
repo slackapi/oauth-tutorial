@@ -15,9 +15,9 @@ Sure, this sounds like a useless demo, but the poupose of this example is to sho
 Try this [**OAuth demo on Glitch**](https://slack-echobot-oauth.glitch.me/)!
 
 ---
----
 
-Cool. First, [Fork this sample ("Remix on Glitch")](https://gomix.com/#!/remix/slack-echobot-oauth) to your own repo and get started!
+
+Cool. First, fork this repo, (or [Remix on Glitch](https://gomix.com/#!/remix/slack-echobot-oauth) if you want to try it on Glitch) to your own repo and get started!
 
 ###  1. Developing a Bot
 
