@@ -1,6 +1,6 @@
 # 📦 2. Distributing Your App
 
----
+
 Once you finish developing and testing your Slack app (internal integration) in your own dev workspace, now it is time to make it installable and distribute.
 
 To distribute your app (on Slack App Directory or elsewhere), you must use Slack OAuth to authenticate a user and her workspace (where the app will be installed).
