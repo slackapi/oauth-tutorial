@@ -132,6 +132,6 @@ Go to the HTML page with the button and authenticate and install the bot to a wo
 
 ![install](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth.png?1507586335453)
 
-Try the EchoBot by typing something with an emoji. It should work!
+Try the EchoBot by typing the slash command, `/echobot`. It should work!
 
 If something goes wrong, the first thing I would suspect is the permission scopes are not set correctly with your OAuth button, you should should check.
