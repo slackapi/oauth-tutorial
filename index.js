@@ -30,7 +30,9 @@ const server = app.listen(process.env.PORT || 5000, () => {
 // Internal integration only (No OAuth)
 //const oauthToken = process.env.SLACK_AUTH_TOKEN;
 
-const storage = require('node-persist');
+
+// I am using this to store tokens quickly for this demo, but you probably want to use a real DB!
+const storage = require('node-persist'); 
 storage.initSync();
 
 let apiUrl = 'https://slack.com/api';
@@ -152,22 +154,4 @@ app.get('/team/:id', function (req, res) {
 
 });
 
-/* /echo Slash command
-{ token: '4OkeSO5aydrbTHdoerLxgk0U',
-  team_id: 'T0JFD6M53',
-  team_domain: 'slack-hackers',
-  channel_id: 'C5TS6D8CC',
-  channel_name: 'tomomi',
-  user_id: 'U5R3PALPN',
-  user_name: 'girlie_mac',
-  command: '/echo',
-  text: 'hello',
-  response_url: 'https://hooks.slack.com/commands/T0JFD6M53/254774836999/bAH0YDbFEBExzFIPnAbJfP39',
-  trigger_id: '253688129522.18523225173.2f2c12016c25d34d7fb41274a835171b' }
-  */
 
-  /* user.info
-
-  {"ok":true,"user":{"id":"U5R3PALPN","team_id":"T0JFD6M53","name":"girlie_mac","deleted":false,"color":"ea2977","real_name":"Tomomi Imura","tz":"America\/Los_Angeles","tz_label":"Pacific Daylight Time","tz_offset":-25200,"profile":{"avatar_hash":"c54bc5873072","real_name":"Tomomi Imura","display_name":"girlie_mac","image_24":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_24.jpg","image_32":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_32.jpg","image_48":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_48.jpg","image_72":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_72.jpg","image_192":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_192.jpg","image_512":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_512.jpg","image_1024":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_1024.jpg","image_original":"https:\/\/avatars.slack-edge.com\/2017-09-19\/243725254002_c54bc58730721b49b0d6_original.jpg","first_name":"Tomomi","last_name":"Imura","status_emoji":":zzz:","real_name_normalized":"Tomomi Imura","display_name_normalized":"girlie_mac","team":"T0JFD6M53"},"is_admin":false,"is_owner":false,"is_primary_owner":false,"is_restricted":false,"is_ultra_restricted":false,"is_bot":false,"updated":1507583389,"is_app_user":false,"has_2fa":false}}
-
-  */
