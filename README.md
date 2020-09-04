@@ -1,3 +1,7 @@
+# ARCHIVED
+
+This piece of sample code has been archived. For more up to date samples, check out some of the other repositories on https://github.com/slackapi
+
 # Slack OAuth Demo with a Simple Bot
 
 ![install](https://cdn.glitch.com/2ec8b3de-9650-4eab-b71f-62c01b006901%2Fslack_oauth.png?1507586335453)
